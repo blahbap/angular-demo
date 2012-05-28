@@ -11,11 +11,15 @@
 	#demo-frame > div.demo { padding: 10px !important; }
 	</style>
 	<script>
+		var updateValueBox = function(event, ui) {
+			document.getElementById("valueBox").value = ui.value;
+		}
+
 		$(function() {
 			var slider = $("#slider").slider({
 				value: 50,
    				change: function(event, ui) { 
-   					document.getElementById("valueBox").value = $("#slider").slider("value");
+   					updateValueBox(event, ui);
    				}
 			});
 		});
