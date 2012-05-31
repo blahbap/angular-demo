@@ -1,36 +1,16 @@
-<html>
+<html ng-app="sliderApp">
 <head>
 	<title>No frameworks</title>
-	<link rel="stylesheet" type="text/css" href="../jquery-ui/css/smoothness/jquery-ui-1.8.20.custom.css">
-	<script type="text/javascript" src="../jquery-ui/js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="../jquery-ui/js/jquery-ui-1.8.20.custom.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>	
+	<script src="http://code.angularjs.org/angular-1.0.0rc10.min.js"></script>
+	<script type="text/javascript" src="slider.js"></script>
+	<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/redmond/jquery-ui.css" rel="stylesheet" />
 
 </head>
-<body>
-	<style>
-	#demo-frame > div.demo { padding: 10px !important; }
-	</style>
-	<script>
 
-		$(function() {
-			var slider = $("#slider").slider({
-				value: 50,
-   				change: function(event, ui) { 
-   					$("#valueBox").val(ui.value);
-   				}
-			});
-		});
-
-
-	</script>
-
-	<div class="demo">
-		<div id="slider"></div>
-	</div>
-
-	<div>
-		<input id="valueBox" value="20"></div>
-	</div>
-
+<body ng:controller="Controller">
+<div jqSlider></div>
+<input id="amount" >
 </body>
 </html>
