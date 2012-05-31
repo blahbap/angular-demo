@@ -1,40 +1,40 @@
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-<script type="text/javascript" ng:autobind src="http://code.angularjs.org/angular-1.0.0rc10.min.js"></script>
-<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/redmond/jquery-ui.css" rel="stylesheet" />
-
-<script type="text/javascript">
-	function Controller($scope) {
-		$scope.sliderValue = 50;
-	}
-
-	angular.module("sliderModule", []).directive('jqSlider', function() {	    
-	    return {
-	        link: function postLink(scope, element, attrs) {	        	
-	        	
-	        	scope.$watch('sliderValue', function(val) {
-        			element.slider("value", val );
-	        	})
-
-	        	element.slider({
-		            value: scope.sliderValue,
-		            slide: function(event, ui) {
-		                $("#amount").val(ui.value);
-		                scope.sliderValue = ui.value;
-		                scope.$apply();
-	            	}
-				});
-	        }
-	    };
-	})
-</script>
 <html ng-app="sliderModule">
-<head>
-	<title>Angular demo - two way binding</title>
-</head>
-<body ng:controller="Controller">
-<div jq-slider=""></div>
-<input id="valueInput" ng-model="sliderValue" />
+	<head>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+	<script type="text/javascript" ng:autobind src="http://code.angularjs.org/angular-1.0.0rc10.min.js"></script>
+	<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/redmond/jquery-ui.css" rel="stylesheet" />
+		<title>Angular demo - two way binding</title>
+	</head>
+	<body ng:controller="Controller">
+		<script type="text/javascript">
+			function Controller($scope) {
+				$scope.sliderValue = 50;
+			}
 
-</body>
+			angular.module("sliderModule", []).directive('jqSlider', function() {	    
+			    return {
+			        link: function postLink(scope, element, attrs) {	        			        	
+			        	scope.$watch('sliderValue', function(val) {
+		        			element.slider("value", val );
+			        	})
+
+			        	element.slider({
+				            value: scope.sliderValue,
+				            slide: function(event, ui) {
+				                $("#amount").val(ui.value);
+				                scope.sliderValue = ui.value;
+				                scope.$apply();
+			            	}
+						});
+			        }
+			    };
+			})
+		</script>
+
+		<h2>Two way binding with Angular</h2>
+		<div jq-slider=""></div>
+		<input id="valueInput" ng-model="sliderValue" />
+	
+	</body>
 </html>
