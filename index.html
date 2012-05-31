@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
 	function Controller($scope) {
-		$scope.sliderValue = 70;
+		$scope.sliderValue = 50;
 	    
 	}
 
@@ -13,10 +13,6 @@
 	    return {
 	        link: function postLink(scope, element, attrs) {	        	
 	        	
-	        	scope.$watch('sliderValue', function(val) {
-	        		element.slider("value", val );
-	        	})
-
 	        	element.slider({
 		            value: scope.sliderValue,
 		            slide: function(event, ui) {
