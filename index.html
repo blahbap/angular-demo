@@ -1,17 +1,16 @@
 <html>
 <head>
-	<title>No frameworks</title>
+	<title>Angular demo - one way binding with jQuery</title>
 	<link rel="stylesheet" type="text/css" href="../jquery-ui/css/smoothness/jquery-ui-1.8.20.custom.css">
 	<script type="text/javascript" src="../jquery-ui/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../jquery-ui/js/jquery-ui-1.8.20.custom.min.js"></script>
-
 </head>
 <body>
+	<h2>One way binding, using jQuery</h2>
 	<style>
-	#demo-frame > div.demo { padding: 10px !important; }
+		div.demo { padding: 10px !important;}
 	</style>
 	<script>
-
 		$(function() {
 			var slider = $("#slider").slider({
 				value: 50,
@@ -20,8 +19,6 @@
    				}
 			});
 		});
-
-
 	</script>
 
 	<div class="demo">
