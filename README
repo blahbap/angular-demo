@@ -3,7 +3,7 @@ angular-demo
 
 Examples of two-way binding with jQuery UI slider and Angular.js
 
-There are 4 branches:
+There are 4 branches which progress towards a better pattern:
 
 STEP-1 - using DOM methods for one-way binding (from slider to input box) 
 
