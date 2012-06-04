@@ -2,17 +2,26 @@
 	<head>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.knob.js"></script>
 	<script type="text/javascript" ng:autobind src="http://code.angularjs.org/angular-1.0.0rc10.min.js"></script>
 	<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/redmond/jquery-ui.css" rel="stylesheet" />
 		<title>Angular demo - two way binding</title>
 	</head>
 	<body ng:controller="Controller">
+		<style type="text/css">
+			.dial {
+				vertical-align: middle;
+				padding: 20px;
+			}
+		</style>
 		<script type="text/javascript">
+		
 			function Controller($scope) {
 				$scope.sliderValue = 50;
 			}
 
-			angular.module("sliderModule", []).directive('jqSlider', function() {	    
+			angular.module("sliderModule", []).
+			directive('jqSlider', function() {	    
 			    return {
 			        link: function postLink(scope, element, attrs) {	        			        	
 			        	scope.$watch('sliderValue', function(val) {
@@ -29,12 +38,33 @@
 						});
 			        }
 			    };
+			}).
+			directive('jqDial', function() {
+			    return {
+			        link: function postLink(scope, element, attrs) {	        			        	
+			        	scope.$watch('sliderValue', function(val) {
+		        			element.val(scope.sliderValue).trigger('change');
+			        	})
+
+			        	element.knob({
+						    change: function(value) {
+						        scope.sliderValue = value;
+						     	scope.$apply();   
+						    }
+						});
+			        }
+			    };
+
 			})
+
+		
 		</script>
 
 		<h2>Two way binding with Angular</h2>
 		<div jq-slider=""></div>
-		<input id="valueInput" ng-model="sliderValue" />
-	
+		<input id="valueInput1" ng-model="sliderValue" />
+		<div>
+			<input jq-dial type="text" value="{{sliderValue}}" class="dial" data-min="0" data-max="100" data-width="100" >
+		</div>
 	</body>
 </html>
