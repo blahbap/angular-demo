@@ -11,22 +11,22 @@
 		<script type="text/javascript">
 		
 			function Controller($scope) {
-				$scope.sliderValue = 50;
+				$scope.amount = 50;
 			}
 
 			angular.module("sliderModule", []).
 			directive('jqSlider', function() {	    
 			    return {
 			        link: function postLink(scope, element, attrs) {	        			        	
-			        	scope.$watch('sliderValue', function(val) {
+			        	scope.$watch('amount', function(val) {
 		        			element.slider("value", val );
 			        	})
 
 			        	element.slider({
-				            value: scope.sliderValue,
+				            value: scope.amount,
 				            slide: function(event, ui) {
 				                $("#amount").val(ui.value);
-				                scope.sliderValue = ui.value;
+				                scope.amount = ui.value;
 				                scope.$apply();
 			            	}
 						});
@@ -37,7 +37,7 @@
 
 		<h2>Two way binding with Angular</h2>
 		<div jq-slider=""></div>
-		<input id="valueInput" ng-model="sliderValue" />
+		<input id="valueInput" ng-model="amount" />
 
 	</body>
 </html>
