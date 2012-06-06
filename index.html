@@ -17,22 +17,22 @@
 		<script type="text/javascript">
 		
 			function Controller($scope) {
-				$scope.sliderValue = 50;
+				$scope.amount = 50;
 			}
 
 			angular.module("sliderModule", []).
 			directive('jqSlider', function() {	    
 			    return {
 			        link: function postLink(scope, element, attrs) {	        			        	
-			        	scope.$watch('sliderValue', function(val) {
+			        	scope.$watch('amount', function(val) {
 		        			element.slider("value", val );
 			        	})
 
 			        	element.slider({
-				            value: scope.sliderValue,
+				            value: scope.amount,
 				            slide: function(event, ui) {
 				                $("#amount").val(ui.value);
-				                scope.sliderValue = ui.value;
+				                scope.amount = ui.value;
 				                scope.$apply();
 			            	}
 						});
@@ -42,13 +42,13 @@
 			directive('jqDial', function() {
 			    return {
 			        link: function postLink(scope, element, attrs) {	        			        	
-			        	scope.$watch('sliderValue', function(val) {
-		        			element.val(scope.sliderValue).trigger('change');
+			        	scope.$watch('amount', function(val) {
+		        			element.val(scope.amount).trigger('change');
 			        	})
 
 			        	element.knob({
 						    change: function(value) {
-						        scope.sliderValue = value;
+						        scope.amount = value;
 						     	scope.$apply();   
 						    }
 						});
@@ -62,9 +62,9 @@
 
 		<h2>Two way binding with Angular</h2>
 		<div jq-slider=""></div>
-		<input id="valueInput1" ng-model="sliderValue" />
+		<input id="valueInput1" ng-model="amount" />
 		<div>
-			<input jq-dial type="text" value="{{sliderValue}}" class="dial" data-min="0" data-max="100" data-width="100" >
+			<input jq-dial type="text" value="{{amount}}" class="dial" data-min="0" data-max="100" data-width="100" >
 		</div>
 	</body>
 </html>
