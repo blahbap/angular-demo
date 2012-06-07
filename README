@@ -9,6 +9,10 @@ STEP-1 - using DOM methods for one-way binding (from slider to input box)
 
 STEP-2 - using jQuery methods for one-way binding (from slider to input box) 
 
-STEP-3 - using Angular for one-way binding (from slider to input box) 
+STEP-3 - Introducing Angular
 
-STEP-4 - using Angular methods for two-way binding (from slider to input box and from input box to slider) 
+STEP-4 - using Angular for one-way binding (from slider to input box) 
+
+STEP-5 - using Angular methods for two-way binding (from slider to input box and from input box to slider) 
+
+STEP-6 - Even more UI elements
